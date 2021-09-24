@@ -19,7 +19,7 @@ public class Invoice {
     private String id;
     private Date date;
     private BigDecimal amount;
-    private String clientId;
+    private String customerId;
 
     @Transient
     private Customer customer;
