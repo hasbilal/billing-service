@@ -23,13 +23,13 @@ public class BillingApplication {
         return args -> {
 
             invoiceService.save(InvoiceRequestDTO.builder()
-                    .customerId("C01")
+                    .customerId("CO1")
                     .amount(BigDecimal.valueOf(37000))
                     .build());
 
             invoiceService.save(InvoiceRequestDTO.builder()
                     .amount(BigDecimal.valueOf(36000))
-                    .customerId("C02")
+                    .customerId("CO2")
                     .build());
         };
     }

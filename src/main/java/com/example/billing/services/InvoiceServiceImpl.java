@@ -80,6 +80,17 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
+    public List<InvoiceResponseDTO> allInvoices() {
+
+        List<Invoice> invoiceList = invoiceRepository.findAll();
+        List<InvoiceResponseDTO>invoiceResponseDTOList = invoiceList.stream()
+                .map(invoice -> invoiceMapper.invoiceToInvoiceResponceDTO(invoice))
+                .collect(Collectors.toList());
+
+        return invoiceResponseDTOList;
+    }
+
+    @Override
     public void deleteInvoice(String id) {
 
         invoiceRepository.deleteById(id);

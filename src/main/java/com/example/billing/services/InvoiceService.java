@@ -12,5 +12,6 @@ public interface InvoiceService {
     InvoiceResponseDTO update(InvoiceRequestDTO invoiceRequestDTO);
     InvoiceResponseDTO getInvoice(String id);
     List<InvoiceResponseDTO> invoiceByCustomerId(String CustomerId);
+    List<InvoiceResponseDTO> allInvoices();
     void deleteInvoice(String id);
 }
