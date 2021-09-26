@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -37,6 +38,10 @@ public class InvoiceServiceImpl implements InvoiceService {
 
         Invoice invoice = invoiceMapper.invoiceRequestDTOToInvoice(invoiceRequestDTO);
         invoice.setId(UUID.randomUUID().toString());
+        invoice.setDate(new Date());
+        /**
+         * verification de l'integrité référentielle invoice/customer
+         */
         Invoice savedInvoice = invoiceRepository.save(invoice);
         InvoiceResponseDTO invoiceResponseDTO = invoiceMapper.invoiceToInvoiceResponceDTO(savedInvoice);
 
